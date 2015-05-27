@@ -15,6 +15,8 @@ class Kernel extends HttpKernel {
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
+
+        // TODO need to turn this on/off for a route (it should be on by default
 		//'App\Http\Middleware\VerifyCsrfToken',
 	];
 
