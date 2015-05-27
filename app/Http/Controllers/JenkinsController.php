@@ -52,15 +52,10 @@ class JenkinsController extends Controller
 
         $views = array();
 
-//        echo "<ol class='list'>";
         foreach ($view->getJobs() as $job) {
-//            echo "<li>" . $job->getName() . "</li>";
             $views[] = $job->getName();
         }
-//        echo "</ol>";
 
         return view('jobs.index')->with(['views' => $views, 'pageTitle' => 'Jobs']);
-//        return view('hooks.index')->with(['hooks' => $hooks, 'pageTitle' => 'Hooks']);
-
     }
 }
