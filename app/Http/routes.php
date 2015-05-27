@@ -23,9 +23,13 @@ Route::controllers([
 // Home (dashboard) routes
 Route::get('/', 'HomeController@index');
 
+// hook routes
+Route::get('hooks/', 'HooksController@index');
+
 // project routes
 Route::get('projects/', 'ProjectsController@index');
 
+// job routes
 Route::get('jobs/', 'JenkinsController@showJobs');
 
 // api routes
