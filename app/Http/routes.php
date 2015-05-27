@@ -24,6 +24,7 @@ Route::get('hooks/', ['middleware' => 'auth', 'uses' => 'HooksController@index']
 
 // project routes
 Route::get('projects/', ['middleware' => 'auth', 'uses' => 'ProjectsController@index']);
+Route::get('projects/{project}', ['middleware' => 'auth', 'uses' => 'ProjectsController@edit']);
 
 // job routes
 Route::get('jobs/', ['middleware' => 'auth', 'uses' => 'JenkinsController@showJobs']);

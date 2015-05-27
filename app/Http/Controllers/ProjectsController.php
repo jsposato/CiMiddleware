@@ -23,7 +23,10 @@ class ProjectsController extends Controller
 
     }
 
-    public function edit() {}
+    public function edit($id) {
+        $project = Project::findOrFail($id);
+        return view('projects.edit')->with(['project' => $project, 'pageTitle' => 'Edit Project']);
+    }
 
     public function update() {}
 }
