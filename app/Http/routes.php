@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('/', 'WelcomeController@index');
-
-//Route::get('home', 'HomeController@index');
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -24,13 +20,13 @@ Route::controllers([
 Route::get('/', 'HomeController@index');
 
 // hook routes
-Route::get('hooks/', 'HooksController@index');
+Route::get('hooks/', ['middleware' => 'auth', 'uses' => 'HooksController@index']);
 
 // project routes
-Route::get('projects/', 'ProjectsController@index');
+Route::get('projects/', ['middleware' => 'auth', 'uses' => 'ProjectsController@index']);
 
 // job routes
-Route::get('jobs/', 'JenkinsController@showJobs');
+Route::get('jobs/', ['middleware' => 'auth', 'uses' => 'JenkinsController@showJobs']);
 
 // api routes
 Route::group(['prefix' => 'api/v1'], function ()  {
