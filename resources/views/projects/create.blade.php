@@ -1,23 +1,21 @@
 @extends('layouts.default')
 
-@section('title', 'Edit Project')
+@section('title', 'Add Project')
 
 @section('content')
     <div class="row">
         <div class="form-group col-md-6 col-sm-6">
-            <h1>Edit Project</h1>
-            {!! Form::model($project, ['method' => 'PUT', 'route' => ['projects.update', $project->id], 'files' => true]) !!}
+            <h1>Add Project</h1>
+            {!! Form::open(['route' => 'projects.store']) !!}
             <div class="form-group">
                 {!! Form::label( 'projectName', 'Project Name: ' ) !!}
                 {!! Form::text( 'projectName', null, [ 'class' => 'form-control',
                                                  'placeholder' => 'Project Name',
-                                                 'disabled' => 'true'
                                                  ] ) !!}
             </div>
             <div class="form-group">
                 {!! Form::label( 'scmHost', 'SCM Host: ' ) !!}
-                {!! Form::text( 'scmHost', null, [ 'class' => 'form-control',
-                'placeholder' => 'SCM Host',
+                {!! Form::select( 'scmHost', null, [ 'class' => 'form-control',
                 'disabled' => 'true'
                 ] ) !!}
             </div>

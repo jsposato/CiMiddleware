@@ -23,8 +23,11 @@ Route::get('/', 'HomeController@index');
 Route::get('hooks/', ['middleware' => 'auth', 'uses' => 'HooksController@index']);
 
 // project routes
-Route::get('projects/', ['middleware' => 'auth', 'uses' => 'ProjectsController@index']);
-Route::get('projects/{project}', ['middleware' => 'auth', 'uses' => 'ProjectsController@edit']);
+//Route::model('projects', 'Project');
+Route::resource('projects', 'ProjectsController');
+//Route::get('projects/', ['middleware' => 'auth', 'uses' => 'ProjectsController@index']);
+//Route::get('projects/{project}', ['middleware' => 'auth', 'uses' => 'ProjectsController@edit']);
+//Route::put('projects/', ['middleware' => 'auth', 'uses' => 'ProjectsController@update', 'as' => 'projects.update']);
 
 // job routes
 Route::get('jobs/', ['middleware' => 'auth', 'uses' => 'JenkinsController@showJobs']);

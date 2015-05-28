@@ -8,4 +8,6 @@ class Project extends Model
 
     protected $table = 'projects';
 
+    protected $fillable = ['projectName', 'scmHost', 'configFile'];
+
 }

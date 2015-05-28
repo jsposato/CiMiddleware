@@ -2,13 +2,20 @@
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 
 class ProjectsController extends Controller
 {
-    public function add() {}
+    public function store() {
+        // need to make folder under storage/app for project to hold configuration files
 
-    public function create() {}
+    }
+
+    public function create() {
+        return view('projects.create');
+    }
 
     /**
      * index
@@ -28,5 +35,10 @@ class ProjectsController extends Controller
         return view('projects.edit')->with(['project' => $project, 'pageTitle' => 'Edit Project']);
     }
 
-    public function update() {}
+    public function update($id) {
+        $project = Project::findOrFail( $id );
+        $project->fill( Input::all() )->save();
+
+        return Redirect::route('projects.index');
+    }
 }

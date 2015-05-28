@@ -6,6 +6,7 @@
     <div class="row">
         <div class="span12">
             <legend>Projects</legend>
+            <div><a href="{{ route('projects.create') }}" class="btn btn-sm btn-primary">Add Project</a></div><br/>
             <table class="table table-hover table-bordered table-responsive table-condensed table-striped table-border">
                 <thead>
                 <tr>
