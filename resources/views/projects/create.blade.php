@@ -15,9 +15,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label( 'scmHost', 'SCM Host: ' ) !!}
-                {!! Form::select( 'scmHost', null, [ 'class' => 'form-control',
-                'disabled' => 'true'
-                ] ) !!}
+                {!! Form::select('scmHost', $scmHosts) !!}
             </div>
             <div class="form-group">
                 {!! Form::label( 'configFile', 'Upload Config File ' ) !!}

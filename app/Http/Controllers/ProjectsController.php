@@ -1,20 +1,42 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Project;
+use Config;
+use Exception;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProjectsController extends Controller
 {
     public function store() {
         // need to make folder under storage/app for project to hold configuration files
+        $projectFilePath = Input::get('projectName');
+        try {
+            Storage::makeDirectory($projectFilePath);
+        } catch (Exception $e) {
+            return Redirect::route('projects.create')->with('error', $e->getMessage());
+        }
+
+        dd(Input::file());
+        // make project storage folder
+        // change file path to project storage folder
+        // make sure configFile saved to db is the new path
+        // save project
 
     }
 
+    /**
+     * create
+     *
+     * get form to create project
+     *
+     * @return $this
+     */
     public function create() {
-        return view('projects.create');
+        $scmHostEnums = Config::get('project.scmHosts');
+        return view('projects.create')->with('scmHosts', $scmHostEnums);
     }
 
     /**
